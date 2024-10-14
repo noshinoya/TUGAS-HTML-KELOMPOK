@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="icon"
+		href="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGN5dHhzMmF2MGNrdWoxd28wbGU1ZWJ4aDR4bnN2ZzhxOTR1cTcwNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/pDn9h4mpzxE85qIbMV/giphy.webp"
+		type="image/x-icon" />
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+	<title>Capybara</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		.sidebar {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 2000px;
+			width: 70px;
+			background-color: #a18b6b;
+			padding: .8rem .8rem;
+			transition: all 0.5s ease;
+		}
+
+		.sidebar.active~.main-content {
+			left: 250px;
+			width: calc(100% - 200px);
+		}
+
+		.sidebar.active {
+			width: 210px;
+		}
+
+		.sidebar #btn {
+			position: absolute;
+			color: #f1e5da;
+			top: .4rem;
+			left: 50%;
+			font-size: 1.2rem;
+			line-height: 50px;
+			transform: translateX(-50%);
+			cursor: pointer;
+		}
+
+		.sidebar.active #btn {
+			left: 90%;
+		}
+
+		.sidebar .top .logo {
+			color: #f1e5da;
+			display: flex;
+			height: 50px;
+			width: 100%;
+			align-items: center;
+			pointer-events: none;
+			opacity: 0;
+			transition: opacity 0.3s ease-in;
+		}
+
+		.sidebar.active .top .logo {
+			opacity: 1;
+		}
+
+		.top .logo {
+			font-size: 2rem;
+			margin-right: 20px;
+		}
+
+		.user {
+			display: flex;
+			align-items: center;
+			margin: 1rem 0;
+		}
+
+		.user p {
+			color: #f1e5da;
+			opacity: 1;
+			margin-left: 1rem
+		}
+
+
+		.sidebar p {
+			opacity: 0;
+		}
+
+		.sidebar.active p {
+			opacity: 1;
+		}
+
+		.sidebar ul li {
+			position: relative;
+			list-style-type: none;
+			height: 50px;
+			width: 90%;
+			margin: 0.8rem auto;
+			line-height: 50px;
+		}
+
+		.sidebar ul li a {
+			color: #f1e5da;
+			display: flex;
+			align-items: center;
+			text-decoration: none;
+			border-radius: 0.8rem;
+		}
+
+		.sidebar ul li a:hover {
+			background-color: #f1e5da;
+			color: #7d5448;
+		}
+
+		.sidebar ul li a i {
+			min-width: 50px;
+			text-align: center;
+			height: 50px;
+			border-radius: 12px;
+			line-height: 50px;
+		}
+
+		.sidebar .nav-item {
+			opacity: 0;
+			transition: opacity 0.3s ease-in;
+		}
+
+		.sidebar.active .nav-item {
+			opacity: 1;
+		}
+
+		.sidebar ul li .tooltip {
+			position: absolute;
+			left: 125px;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			box-shadow: 0 0.5rem 0.8rem rgba(0, 0, 0, 0.2);
+			border-radius: .5rem;
+			padding: .4rem 1.2rem;
+			line-height: 1.8rem;
+			z-index: 20;
+			opacity: 0;
+		}
+
+		.sidebar ul li:hover .tooltip {
+			opacity: 1;
+			background-color: #f1e5da;
+			color: #7d5448;
+		}
+
+		.sidebar.active ul li .tooltip {
+			display: none;
+		}
+
+		.main-content {
+			position: relative;
+			min-height: 100vh;
+			top: 0;
+			left: 80px;
+			transition: all 0.5s ease;
+			width: calc(100%-80px);
+			padding: 1rem;
+
+		}
+
+		body {
+			background-color: #f3dcbe;
+			color: #7d5448;
+			line-height: 1.6;
+			margin: 0;
+			
+		}
+
+		.container {
+			background-color: #f3dcb2;
+			padding: 2rem;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(125, 84, 72, 0.2);
+			max-width: 600px;
+			margin-left: 180px;
+		}
+
+		.judul {
+			text-align: center;
+			color: #7d5448;
+		}
+
+		form {
+			display: grid;
+			gap: 1rem;
+		}
+
+		label {
+			font-weight: bold;
+		}
+
+		input[type="text"],
+		input[type="date"],
+		textarea,
+		select {
+			width: 100%;
+			padding: 0.5rem;
+			border: 1px solid #7d5448;
+			border-radius: 4px;
+			box-sizing: border-box;
+			background-color: #fff;
+			color: #7d5448;
+		}
+
+		textarea {
+			height: 100px;
+			resize: vertical;
+		}
+
+		.radio-group,
+		.checkbox-group {
+			display: grid;
+			gap: 0.5rem;
+		}
+
+		button {
+			padding: 0.5rem 1rem;
+			background-color: #7d5448;
+			color: #f3dcb2;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			transition: background-color 0.3s;
+		}
+
+		button:hover {
+			background-color: #62423a;
+		}
+
+		button[type="reset"] {
+			background-color: #a17b6f;
+		}
+
+		button[type="reset"]:hover {
+			background-color: #8c6a5f;
+		}
+
+		.buttons {
+			display: flex;
+			justify-content: space-between;
+			margin-top: 1rem;
+		}
+
+		.specify-input {
+			display: none;
+			margin-top: 0.5rem;
+		}
+	</style>
+</head>
+
+<body>
+
+	<nav>
+		<div class="sidebar">
+			<div class="top">
+				<div class="logo">
+					<i class="bx bx-leaf"></i>
+					<span>Menu</span>
+				</div>
+				<i class="bx bx-menu" id="btn"></i>
+			</div>
+			<ul>
+				<li>
+					<a
+						href="D:\file sekolah\kelas 10\TIK\Semester 1\Tugas\Nicklein X3 28\HTML website kelompok\halaman lain\1desc.html">
+						<i class="bx bx-detail"></i>
+						<span class="nav-item">Description</span>
+					</a>
+					<span class="tooltip">Description</span>
+				</li>
+
+				<li>
+					<a
+						href="D:\file sekolah\kelas 10\TIK\Semester 1\Tugas\Nicklein X3 28\HTML website kelompok\halaman lain\2class.html">
+						<i class="bx bx-crown"></i>
+						<span class="nav-item">Classification</span>
+					</a>
+					<span class="tooltip">Classification</span>
+				</li>
+
+				<li>
+					<a
+						href="D:\file sekolah\kelas 10\TIK\Semester 1\Tugas\Nicklein X3 28\HTML website kelompok\index.html">
+						<i class="bx bx-home"></i>
+						<span class="nav-item">Register</span>
+					</a>
+					<span class="tooltip">Register</span>
+				</li>
+			</ul>
+		</div>
+
+
+		<div class="main-content">
+			<div class="content">
+				<p>
+					<font face="Cursive" color="#7d5448" size="7">
+						<b>
+							Register
+						</b>
+					</font>
+				</p>
+				<p>
+					<b>
+						<font size="5" color="#6e5953" face="Monospace">
+							This is the registration form for the Volunteer Capybara Protection Team, If you want to
+							join us fill the form below 👇👇👇
+						</font>
+					</b>
+				</p>
+				<br>
+				<hr width="1800" align="left" color="#7d5448">
+				<br>
+
+				<div class="container">
+					<h1 class="judul">Capybara Volunteer Registration</h1>
+					<form id="volunteerForm">
+						<div>
+							<label for="name">Name:</label>
+							<input type="text" name="name" placeholder="Enter Your Name">
+						</div>
+
+						<div>
+							<label for="birthplace">Place of Birth:</label>
+							<input type="text" name="birthplace" placeholder="Enter Your Place of Birth">
+						</div>
+
+						<div>
+							<label for="birthdate">Date of Birth:</label>
+							<input type="date" name="birthdate" placeholder="Enter Your Date of Birth">
+						</div>
+
+						<div>
+							<label for="address">Address:</label>
+							<textarea name="address" placeholder="Enter Your Address"></textarea>
+						</div>
+
+						<div>
+							<label>Gender:</label>
+							<div class="radio-group">
+								<label><input type="radio" name="gender"> Male</label>
+								<label><input type="radio" name="gender"> Female</label>
+							</div>
+						</div>
+
+						<div>
+							<label for="interest">1. Why are you interested in volunteering for capybara
+								protection?</label>
+							<select name="interest">
+								<option>Select an option</option>
+								<option>Passion for wildlife conservation</option>
+								<option>Desire to gain experience with animals</option>
+								<option>Looking for community service opportunities</option>
+								<option>Other (please specify)</option>
+							</select>
+							<input type="text" id="interestSpecify" name="interestSpecify" class="specify-input"
+								placeholder="Please specify">
+						</div>
+
+						<div>
+							<label for="experience">2. Do you have any prior experience working with animals or wildlife
+								conservation?</label>
+							<select name="experience">
+								<option>Select an option</option>
+								<option>Yes, I have professional experience</option>
+								<option>Yes, I have volunteer experience</option>
+								<option>No, but I am eager to learn</option>
+								<option>No experience</option>
+							</select>
+						</div>
+
+						<div>
+							<label>3. What specific skills can you bring to support the capybara protection
+								efforts?</label>
+							<div class="checkbox-group">
+								<label><input type="checkbox" name="skills"> Animal care and handling</label>
+								<label><input type="checkbox" name="skills"> Environmental education and
+									awareness</label>
+								<label><input type="checkbox" name="skills"> Fundraising and event planning</label>
+								<label><input type="checkbox" name="skills"> Communication and social media
+									outreach</label>
+								<label><input type="checkbox" name="skills"> Other (please specify)</label>
+							</div>
+							<input type="text" id="skillsSpecify" name="skillsSpecify" class="specify-input"
+								placeholder="Please specify">
+						</div>
+
+						<div>
+							<label>4. How much time are you willing to commit to volunteering?</label>
+							<select name="time-commitment">
+								<option>Select an option</option>
+								<option>1-2 hours per week</option>
+								<option>3-5 hours per week</option>
+								<option>6-10 hours per month</option>
+								<option>Occasional/As needed for special events</option>
+							</select>
+						</div>
+
+						<div>
+							<label>5. Do you have any health conditions or physical limitations we should be aware
+								of?</label>
+							<select name="health-conditions">
+								<option>Select an option</option>
+								<option>Yes (please specify)</option>
+								<option>No</option>
+								<option>Prefer not to say</option>
+							</select>
+						</div>
+
+						<div class="buttons">
+							<button type="submit">Save</button>
+							<button type="reset">Clear</button>
+						</div>
+					</form>
+				</div>
+
+				<br>
+
+				<footer>
+					<div style="width: 950px; padding: 20px;">
+						<center>
+							<img src="https://www.icegif.com/wp-content/uploads/2023/04/icegif-1077.gif" width="130"
+								height="130">
+						</center>
+
+						<br>
+						<br>
+
+						<center>
+							<p>
+								<font face="Monospace" size="4" color="#6e5953">
+									Copyright by Nicklein & Owen
+									<br><br>
+									Thenk yohhh and have a nice day :3
+								</font>
+							</p>
+						</center>
+					</div>
+				</footer>
+			</div>
+		</div>
+		</div>
+
+		<script>
+			let btn = document.querySelector('#btn')
+			let sidebar = document.querySelector('.sidebar')
+
+			btn.onclick = function () {
+				sidebar.classList.toggle('active');
+			};
+		</script>
+
+</body>
+
+</html>

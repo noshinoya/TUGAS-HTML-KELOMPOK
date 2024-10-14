@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="icon"
+		href="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGN5dHhzMmF2MGNrdWoxd28wbGU1ZWJ4aDR4bnN2ZzhxOTR1cTcwNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/pDn9h4mpzxE85qIbMV/giphy.webp"
+		type="image/x-icon" />
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+	<title>Capybara</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		.sidebar {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 1000px;
+			width: 70px;
+			background-color: #a18b6b;
+			padding: .8rem .8rem;
+			transition: all 0.5s ease;
+		}
+
+		.sidebar.active~.main-content {
+			left: 250px;
+			width: calc(100% - 200px);
+		}
+
+		.sidebar.active {
+			width: 210px;
+		}
+
+		.sidebar #btn {
+			position: absolute;
+			color: #f1e5da;
+			top: .4rem;
+			left: 50%;
+			font-size: 1.2rem;
+			line-height: 50px;
+			transform: translateX(-50%);
+			cursor: pointer;
+		}
+
+		.sidebar.active #btn {
+			left: 90%;
+		}
+
+		.sidebar .top .logo {
+			color: #f1e5da;
+			display: flex;
+			height: 50px;
+			width: 100%;
+			align-items: center;
+			pointer-events: none;
+			opacity: 0;
+			transition: opacity 0.3s ease-in;
+		}
+
+		.sidebar.active .top .logo {
+			opacity: 1;
+		}
+
+		.top .logo {
+			font-size: 2rem;
+			margin-right: 20px;
+		}
+
+		.user {
+			display: flex;
+			align-items: center;
+			margin: 1rem 0;
+		}
+
+		.user p {
+			color: #f1e5da;
+			opacity: 1;
+			margin-left: 1rem
+		}
+
+
+		.sidebar p {
+			opacity: 0;
+		}
+
+		.sidebar.active p {
+			opacity: 1;
+		}
+
+		.sidebar ul li {
+			position: relative;
+			list-style-type: none;
+			height: 50px;
+			width: 90%;
+			margin: 0.8rem auto;
+			line-height: 50px;
+		}
+
+		.sidebar ul li a {
+			color: #f1e5da;
+			display: flex;
+			align-items: center;
+			text-decoration: none;
+			border-radius: 0.8rem;
+		}
+
+		.sidebar ul li a:hover {
+			background-color: #f1e5da;
+			color: #7d5448;
+		}
+
+		.sidebar ul li a i {
+			min-width: 50px;
+			text-align: center;
+			height: 50px;
+			border-radius: 12px;
+			line-height: 50px;
+		}
+
+		.sidebar .nav-item {
+			opacity: 0;
+			transition: opacity 0.3s ease-in;
+		}
+
+		.sidebar.active .nav-item {
+			opacity: 1;
+		}
+
+		.sidebar ul li .tooltip {
+			position: absolute;
+			left: 125px;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			box-shadow: 0 0.5rem 0.8rem rgba(0, 0, 0, 0.2);
+			border-radius: .5rem;
+			padding: .4rem 1.2rem;
+			line-height: 1.8rem;
+			z-index: 20;
+			opacity: 0;
+		}
+
+		.sidebar ul li:hover .tooltip {
+			opacity: 1;
+			background-color: #f1e5da;
+			color: #7d5448;
+		}
+
+		.sidebar.active ul li .tooltip {
+			display: none;
+		}
+
+		.main-content {
+			position: relative;
+			min-height: 100vh;
+			top: 0;
+			left: 80px;
+			transition: all 0.5s ease;
+			width: calc(100%-80px);
+			padding: 1rem;
+
+		}
+
+		body {
+			background-color: #f3dcbe;
+		}
+
+		.tombol {
+			background-color: #fbeee0;
+			border: 2px solid #422800;
+			border-radius: 30px;
+			box-shadow: #422800 4px 4px 0 0;
+			color: #422800;
+			cursor: pointer;
+			display: inline-block;
+			font-weight: 600;
+			font-size: 18px;
+			padding: 0 18px;
+			line-height: 50px;
+			text-align: center;
+			text-decoration: none;
+			user-select: none;
+			-webkit-user-select: none;
+			touch-action: manipulation;
+		}
+
+		.tombol:hover {
+			background-color: #fff;
+		}
+
+		.tombol:active {
+			box-shadow: #422800 2px 2px 0 0;
+			transform: translate(2px, 2px);
+		}
+
+		@media (min-width: 768px) {
+			.button-74 {
+				min-width: 120px;
+				padding: 0 25px;
+			}
+		}
+	</style>
+</head>
+
+<body>
+
+	<nav>
+		<div class="sidebar">
+			<div class="top">
+				<div class="logo">
+					<i class="bx bx-leaf"></i>
+					<span>Menu</span>
+				</div>
+				<i class="bx bx-menu" id="btn"></i>
+			</div>
+			<ul>
+				<li>
+					<a
+						href="D:\file sekolah\kelas 10\TIK\Semester 1\Tugas\Nicklein X3 28\HTML website kelompok\index.html">
+						<i class="bx bx-home"></i>
+						<span class="nav-item">Home</span>
+					</a>
+					<span class="tooltip">Home</span>
+				</li>
+
+				<li>
+					<a
+						href="D:\file sekolah\kelas 10\TIK\Semester 1\Tugas\Nicklein X3 28\HTML website kelompok\halaman lain\2class.html">
+						<i class="bx bx-crown"></i>
+						<span class="nav-item">Classification</span>
+					</a>
+					<span class="tooltip">Classification</span>
+				</li>
+
+				<li>
+					<a
+						href="D:\file sekolah\kelas 10\TIK\Semester 1\Tugas\Nicklein X3 28\HTML website kelompok\halaman lain\3regis.html">
+						<i class="bx bx-spreadsheet"></i>
+						<span class="nav-item">Register</span>
+					</a>
+					<span class="tooltip">Register</span>
+				</li>
+			</ul>
+		</div>
+
+
+		<div class="main-content">
+			<div class="content">
+				<p>
+					<font face="Cursive" color="#7d5448" size="7">
+						<b>
+							Description : Capybara
+						</b>
+					</font>
+				</p>
+				<p>
+					<b>
+						<font size="5" color="#6e5953" face="Monospace">
+							This is the page where you can find out more about capybaras!!!
+						</font>
+					</b>
+				</p>
+				<br>
+				<hr width="1800" align="left" color="#7d5448">
+				<br>
+
+
+				<article>
+
+					<div style="width: 1000px; padding: 5px;">
+						<p align="left">
+							<font size="5" face="Cursive" color="#7d5448">
+								<b>
+									Swimming Abilities and Adaptations
+								</b>
+							</font>
+						</p>
+
+						<br>
+
+						<p align="justify" class="short-desc">
+							<font size="3" face="Cursive" color="#6e5953">
+								One of the most remarkable abilities of the capybara is its swimming skill. Capybaras
+								have webbed feet, which help them move quickly in the water. They can hold their breath
+								for up to five minutes, allowing them to hide underwater from predators such as jaguars,
+								crocodiles, or birds of prey. Additionally, capybaras rely on their ability to sneak
+								through the water to rest or shelter from the sun's heat.
+							</font>
+						</p>
+
+						<br>
+
+						<p align="left">
+							<font size="5" face="Cursive" color="#7d5448">
+								<b>
+									Reproduction
+
+								</b>
+							</font>
+						</p>
+
+						<br>
+
+						<p align="justify" class="short-desc">
+							<font size="3" face="Cursive" color="#6e5953">
+								Capybaras breed year-round, although the rainy season is typically the peak of their
+								mating season. After a gestation period of around 150 days, a female capybara can give
+								birth to up to eight offspring at a time. Capybara pups are born with fur and open eyes,
+								and they can move around and follow their mother almost immediately, as well as start
+								eating grass within a few days after birth. Nevertheless, they will continue nursing for
+								around 16 weeks.
+							</font>
+						</p>
+
+						<br>
+						<a href="D:\file sekolah\kelas 10\TIK\Semester 1\Tugas\Nicklein X3 28\HTML website kelompok\halaman lain\desc\1desc 2.html"
+							class="tombol">Previous</a>
+						<a href="D:\file sekolah\kelas 10\TIK\Semester 1\Tugas\Nicklein X3 28\HTML website kelompok\halaman lain\desc\1desc 4.html"
+							class="tombol" style="margin-left: 800px;">Next</a>
+
+						<br>
+						<br>
+						<hr width="1800" align="left" color="#7d5448">
+						<br>
+
+				</article>
+
+				<br>
+
+				<footer>
+					<div style="width: 950px; padding: 20px;">
+						<center>
+							<p>
+								<font face="Monospace" size="4" color="#6e5953">
+									Copyright by Nicklein & Owen
+									<br><br>
+									Thenk yohhh and have a nice day :3
+								</font>
+							</p>
+						</center>
+					</div>
+				</footer>
+			</div>
+		</div>
+		</div>
+
+		<script>
+			let btn = document.querySelector('#btn')
+			let sidebar = document.querySelector('.sidebar')
+
+			btn.onclick = function () {
+				sidebar.classList.toggle('active');
+			};
+		</script>
+
+</body>
+
+</html>
