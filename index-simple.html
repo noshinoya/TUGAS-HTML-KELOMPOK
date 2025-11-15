@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dokter Mobil - Bengkel Terpercaya</title>
+    <link rel="stylesheet" href="style-simple.css">
+</head>
+<body>
+    
+    <!-- Header / Navigasi -->
+    <header>
+        <div class="container">
+            <h1>🚗 Dokter Mobil</h1>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#about">About Us</a>
+                <a href="#services">Services</a>
+                <a href="#location">Lokasi</a>
+                <a href="#contact">Hubungi Kami</a>
+                <a href="#affiliate">Affiliate</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Section Home -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h2>Selamat Datang di Dokter Mobil</h2>
+            <p>Bengkel AC Mobil & Tune Up Terpercaya</p>
+            <button onclick="tampilPromo()">Lihat Promo</button>
+        </div>
+    </section>
+
+    <!-- Section About Us -->
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>Dokter Mobil adalah bengkel spesialis AC mobil dan tune up yang telah berpengalaman lebih dari 15 tahun. Kami melayani dengan profesional dan menggunakan peralatan modern untuk memberikan hasil terbaik bagi kendaraan Anda.</p>
+            <p>Visi kami adalah menjadi bengkel terpercaya di seluruh Indonesia dengan pelayanan terbaik dan harga terjangkau.</p>
+        </div>
+    </section>
+
+    <!-- Section Services -->
+    <section id="services">
+        <div class="container">
+            <h2>Services Kami</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Service AC Mobil</h3>
+                    <p>Perbaikan dan perawatan AC mobil lengkap dengan garansi</p>
+                    <p class="harga">Mulai Rp 99.000</p>
+                </div>
+                <div class="service-card">
+                    <h3>Tune Up Mesin</h3>
+                    <p>Tune up mesin untuk performa maksimal kendaraan Anda</p>
+                    <p class="harga">Mulai Rp 150.000</p>
+                </div>
+                <div class="service-card">
+                    <h3>Cuci Darah AC</h3>
+                    <p>Pembersihan menyeluruh sistem AC mobil Anda</p>
+                    <p class="harga">Mulai Rp 200.000</p>
+                </div>
+                <div class="service-card">
+                    <h3>Matic Jet Clean</h3>
+                    <p>Pembersihan transmisi matic untuk performa optimal</p>
+                    <p class="harga">Mulai Rp 250.000</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Lokasi -->
+    <section id="location">
+        <div class="container">
+            <h2>Lokasi Cabang Kami</h2>
+            <div class="location-grid">
+                <div class="location-card">
+                    <h3>Jakarta Selatan</h3>
+                    <p>Jl. Fatmawati No. 123</p>
+                    <p>Telp: 021-7654321</p>
+                </div>
+                <div class="location-card">
+                    <h3>Bandung</h3>
+                    <p>Jl. Soekarno Hatta No. 456</p>
+                    <p>Telp: 022-8765432</p>
+                </div>
+                <div class="location-card">
+                    <h3>Surabaya</h3>
+                    <p>Jl. Ahmad Yani No. 789</p>
+                    <p>Telp: 031-9876543</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Hubungi Kami -->
+    <section id="contact">
+        <div class="container">
+            <h2>Hubungi Kami</h2>
+            <form id="contactForm">
+                <input type="text" id="nama" placeholder="Nama Lengkap" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="tel" id="telepon" placeholder="No. Telepon" required>
+                <textarea id="pesan" placeholder="Pesan Anda" rows="5" required></textarea>
+                <button type="submit">Kirim Pesan</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Section Affiliate -->
+    <section id="affiliate">
+        <div class="container">
+            <h2>Program Affiliate</h2>
+            <p>Bergabunglah dengan program affiliate kami dan dapatkan komisi menarik!</p>
+            
+            <div id="formAffiliate">
+                <h3>Form Pendaftaran Affiliate</h3>
+                <form id="affiliateForm">
+                    <input type="text" id="namaAffiliate" placeholder="Nama Lengkap" required>
+                    <input type="email" id="emailAffiliate" placeholder="Email" required>
+                    <input type="tel" id="telpAffiliate" placeholder="No. Telepon" required>
+                    <input type="text" id="alamatAffiliate" placeholder="Alamat Lengkap" required>
+                    <input type="text" id="kodeReferral" placeholder="Kode Referral (opsional)">
+                    <button type="button" onclick="cetakForm()">Cetak Form Pendaftaran</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Dokter Mobil. Dibuat oleh Siswa Kelas 11 SMA</p>
+            <p>Terima kasih telah mengunjungi website kami!</p>
+        </div>
+    </footer>
+
+    <script src="script-simple.js"></script>
+</body>
+</html>
