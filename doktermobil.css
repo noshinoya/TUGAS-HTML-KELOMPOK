@@ -1,0 +1,583 @@
+/* Reset dan Basic Styling */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Arial, sans-serif;
+	line-height: 1.6;
+	color: #333;
+}
+
+/* Header Styling */
+.lamanatas {
+	background-color: #ff6600;
+	color: white;
+	padding: 15px 0;
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.layoutlogojudul {
+	display: flex;
+	align-items: center;
+	padding: 0 50px;
+	gap: 15px;
+}
+
+.layoutlogojudul img {
+	width: 60px;
+	height: 60px;
+	background-color: white;
+	border-radius: 10px;
+	padding: 5px;
+}
+
+.layoutlogojudul h3 {
+	font-size: 20px;
+	line-height: 1.3;
+}
+
+/* Navigation Styling */
+nav {
+	margin-top: 10px;
+}
+
+.navigasi ul {
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	gap: 30px;
+	padding: 10px 0;
+}
+
+.navigasi ul li a {
+	color: white;
+	text-decoration: none;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 8px 15px;
+	border-radius: 5px;
+	transition: background-color 0.3s;
+}
+
+.navigasi ul li a:hover {
+	background-color: #ff8833;
+}
+
+/* Hero Section */
+.hero {
+	background: linear-gradient(135deg, #ff6600 0%, #ff9944 100%);
+	color: white;
+	padding: 80px 50px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 50px;
+}
+
+.hero-content {
+	flex: 1;
+}
+
+.hero-content h1 {
+	font-size: 36px;
+	margin-bottom: 20px;
+	line-height: 1.3;
+}
+
+.hero-content p {
+	font-size: 18px;
+	margin: 10px 0;
+}
+
+.hero-gambar {
+	flex: 1;
+	text-align: center;
+}
+
+.hero-gambar img {
+	max-width: 100%;
+	height: 300px;
+	background-color: rgba(255,255,255,0.2);
+	border-radius: 10px;
+	padding: 20px;
+}
+
+.tombol-promo {
+	background-color: #ffcc00;
+	color: #333;
+	border: none;
+	padding: 15px 30px;
+	font-size: 18px;
+	font-weight: bold;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-top: 20px;
+	transition: transform 0.3s;
+}
+
+.tombol-promo:hover {
+	transform: scale(1.05);
+	background-color: #ffdd33;
+}
+
+/* About Us Section */
+.lamansatu {
+	display: flex;
+	padding: 60px 50px;
+	gap: 50px;
+	background-color: #f9f9f9;
+	align-items: center;
+}
+
+.hal1 {
+	flex: 1;
+	text-align: center;
+}
+
+.gambarbesar {
+	width: 300px;
+	height: 300px;
+	background-color: #ff6600;
+	border-radius: 50%;
+	padding: 30px;
+}
+
+.hal2 {
+	flex: 2;
+}
+
+.hal2 h1 {
+	color: #ff6600;
+	font-size: 32px;
+	margin-bottom: 20px;
+}
+
+.hal2 p {
+	font-size: 16px;
+	margin-bottom: 15px;
+	text-align: justify;
+}
+
+/* Services Section */
+.lamandua {
+	padding: 60px 50px;
+	background-color: white;
+}
+
+.judul-section {
+	text-align: center;
+	color: #ff6600;
+	font-size: 36px;
+	margin-bottom: 40px;
+}
+
+.container-services {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 30px;
+}
+
+.card-service {
+	background-color: #f9f9f9;
+	border: 2px solid #ff6600;
+	border-radius: 10px;
+	padding: 25px;
+	text-align: center;
+	transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card-service:hover {
+	transform: translateY(-10px);
+	box-shadow: 0 10px 20px rgba(255,102,0,0.3);
+}
+
+.card-service img {
+	width: 80px;
+	height: 80px;
+	background-color: #ff6600;
+	border-radius: 50%;
+	padding: 15px;
+	margin-bottom: 15px;
+}
+
+.card-service h3 {
+	color: #ff6600;
+	font-size: 20px;
+	margin-bottom: 15px;
+}
+
+.card-service ul {
+	list-style: none;
+	text-align: left;
+	margin-bottom: 15px;
+}
+
+.card-service ul li {
+	padding: 5px 0;
+	font-size: 14px;
+}
+
+.card-service ul li:before {
+	content: "✓ ";
+	color: #ff6600;
+	font-weight: bold;
+}
+
+.harga {
+	color: #ff6600;
+	font-weight: bold;
+	font-size: 18px;
+	margin-top: 15px;
+}
+
+/* Lokasi Section */
+.lamantiga {
+	padding: 60px 50px;
+	background-color: #f9f9f9;
+}
+
+.container-lokasi {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 30px;
+}
+
+.card-lokasi {
+	background-color: white;
+	border: 2px solid #ff6600;
+	border-radius: 10px;
+	padding: 25px;
+	text-align: center;
+	transition: transform 0.3s;
+}
+
+.card-lokasi:hover {
+	transform: scale(1.05);
+	box-shadow: 0 5px 15px rgba(255,102,0,0.3);
+}
+
+.card-lokasi h3 {
+	color: #ff6600;
+	font-size: 22px;
+	margin-bottom: 15px;
+}
+
+.card-lokasi p {
+	font-size: 14px;
+	margin: 8px 0;
+}
+
+/* Hubungi Kami Section */
+.lamanempat {
+	padding: 60px 50px;
+	background-color: white;
+}
+
+.container-kontak {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 50px;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.info-kontak {
+	background-color: #f9f9f9;
+	padding: 30px;
+	border-radius: 10px;
+	border: 2px solid #ff6600;
+}
+
+.info-kontak h3 {
+	color: #ff6600;
+	font-size: 24px;
+	margin-bottom: 20px;
+}
+
+.info-kontak p {
+	margin: 8px 0;
+	font-size: 15px;
+}
+
+.form-kontak {
+	background-color: #f9f9f9;
+	padding: 30px;
+	border-radius: 10px;
+	border: 2px solid #ff6600;
+}
+
+.form-kontak h3 {
+	color: #ff6600;
+	font-size: 24px;
+	margin-bottom: 20px;
+}
+
+.form-kontak input,
+.form-kontak textarea {
+	width: 100%;
+	padding: 12px;
+	margin-bottom: 15px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	font-size: 14px;
+}
+
+.tombol-kirim {
+	background-color: #ff6600;
+	color: white;
+	border: none;
+	padding: 12px 30px;
+	font-size: 16px;
+	font-weight: bold;
+	border-radius: 5px;
+	cursor: pointer;
+	width: 100%;
+	transition: background-color 0.3s;
+}
+
+.tombol-kirim:hover {
+	background-color: #ff8833;
+}
+
+/* Affiliate Section */
+.lamanlima {
+	padding: 60px 50px;
+	background-color: #f9f9f9;
+}
+
+.affiliate-info {
+	background-color: white;
+	padding: 30px;
+	border-radius: 10px;
+	border: 2px solid #ff6600;
+	margin-bottom: 30px;
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.affiliate-info h3 {
+	color: #ff6600;
+	font-size: 24px;
+	margin: 20px 0 10px 0;
+}
+
+.affiliate-info ul {
+	margin-left: 30px;
+	margin-top: 10px;
+}
+
+.affiliate-info ul li {
+	margin: 8px 0;
+	font-size: 16px;
+}
+
+.form-affiliate {
+	background-color: white;
+	padding: 40px;
+	border-radius: 10px;
+	border: 2px solid #ff6600;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.form-affiliate h2 {
+	color: #ff6600;
+	text-align: center;
+	margin-bottom: 30px;
+	font-size: 28px;
+}
+
+.form-group {
+	margin-bottom: 20px;
+}
+
+.form-group label {
+	display: block;
+	color: #333;
+	font-weight: bold;
+	margin-bottom: 8px;
+	font-size: 15px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+	width: 100%;
+	padding: 12px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	font-size: 14px;
+}
+
+.tombol-group {
+	display: flex;
+	gap: 15px;
+	margin-top: 30px;
+}
+
+.tombol-cetak,
+.tombol-reset {
+	flex: 1;
+	padding: 12px;
+	font-size: 16px;
+	font-weight: bold;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.tombol-cetak {
+	background-color: #ff6600;
+	color: white;
+}
+
+.tombol-cetak:hover {
+	background-color: #ff8833;
+}
+
+.tombol-reset {
+	background-color: #666;
+	color: white;
+}
+
+.tombol-reset:hover {
+	background-color: #888;
+}
+
+/* Area Cetak */
+.area-cetak {
+	display: none;
+}
+
+.header-cetak {
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.header-cetak h2 {
+	color: #ff6600;
+	font-size: 28px;
+	margin-bottom: 5px;
+}
+
+.header-cetak h3 {
+	color: #333;
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+
+.header-cetak p {
+	font-size: 14px;
+	margin: 3px 0;
+}
+
+.header-cetak hr {
+	border: 2px solid #ff6600;
+	margin: 15px 0;
+}
+
+/* Footer Styling */
+footer {
+	background-color: #333;
+	color: white;
+	padding: 40px 50px 20px 50px;
+}
+
+.footer-content {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 30px;
+	margin-bottom: 30px;
+}
+
+.footer-kolom h4 {
+	color: #ff6600;
+	font-size: 18px;
+	margin-bottom: 15px;
+}
+
+.footer-kolom p {
+	font-size: 14px;
+	margin: 8px 0;
+}
+
+.footer-bottom {
+	text-align: center;
+	padding-top: 20px;
+	border-top: 1px solid #555;
+}
+
+.footer-bottom p {
+	font-size: 14px;
+	color: #aaa;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+	.layoutlogojudul {
+		padding: 0 20px;
+	}
+
+	.navigasi ul {
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	.hero {
+		flex-direction: column;
+		padding: 40px 20px;
+	}
+
+	.lamansatu {
+		flex-direction: column;
+		padding: 40px 20px;
+	}
+
+	.container-services {
+		grid-template-columns: 1fr;
+	}
+
+	.container-lokasi {
+		grid-template-columns: 1fr;
+	}
+
+	.container-kontak {
+		grid-template-columns: 1fr;
+	}
+
+	.footer-content {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* Print Styling */
+@media print {
+	body * {
+		visibility: hidden;
+	}
+
+	.area-cetak,
+	.area-cetak * {
+		visibility: visible;
+	}
+
+	.area-cetak {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		padding: 20px;
+	}
+
+	.header-cetak {
+		page-break-after: avoid;
+	}
+}
